@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getStationById } from "@/lib/mock-data";
+import { MOCK_STATIONS } from "@/lib/mock-data";
+
+export async function generateStaticParams() {
+  return MOCK_STATIONS.map((station) => ({
+    id: station.id,
+  }));
+}
 
 export const metadata = {
   title: "Station Results",
